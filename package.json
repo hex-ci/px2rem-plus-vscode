@@ -1,0 +1,68 @@
+{
+  "name": "px2rem-plus",
+  "displayName": "px2rem+",
+  "description": "px to rem",
+  "version": "0.0.1",
+  "publisher": "Hex",
+  "engines": {
+    "vscode": "^1.20.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:html",
+    "onLanguage:vue",
+    "onLanguage:css",
+    "onLanguage:less",
+    "onLanguage:scss",
+    "onLanguage:sass",
+    "onLanguage:stylus"
+  ],
+  "main": "./src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.px2rem-plus",
+        "title": "px2rem+"
+      }
+    ],
+    "configuration": {
+			"type": "object",
+			"title": "px2rem+ configuration",
+			"properties": {
+				"px2rem-plus.base": {
+					"type": "number",
+					"default": 75,
+					"description": "The base pixel size for px convert to rem. This can be overridden inline."
+				},
+				"px2rem-plus.precision": {
+					"type": "number",
+					"default": 6,
+					"description": "The number of digits to the right of the decimal point"
+				},
+				"px2rem-plus.comments": {
+					"type": "boolean",
+					"default": false,
+					"description": "Add origin pixel value like /* 100/75 */"
+				},
+				"px2rem-plus.leadingZero": {
+					"type": "boolean",
+					"default": false,
+					"description": "Keep the leading zero for converted values < 1. E.g. 0.5rem (preserved) vs .5rem (not preserved)"
+				}
+			}
+		}
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.21",
+    "eslint": "^4.11.0",
+    "@types/node": "^8.10.25",
+    "@types/mocha": "^2.2.42"
+  }
+}
