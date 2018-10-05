@@ -25,8 +25,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.px2rem-plus",
-        "title": "px2rem+"
+        "command": "extension.px2rem-plus:convert",
+        "title": "px2rem+ convert"
       }
     ],
     "configuration": {
