@@ -1,4 +1,4 @@
-'use babel';
+'use strict';
 
-export default {
+module.exports = {
 };
