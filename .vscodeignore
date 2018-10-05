@@ -4,3 +4,4 @@ test/**
 .gitignore
 jsconfig.json
 .eslintrc.json
+px2rem.code-workspace
