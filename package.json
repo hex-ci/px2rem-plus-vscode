@@ -4,6 +4,8 @@
   "description": "px to rem",
   "version": "0.0.1",
   "publisher": "Hex",
+  "repository": "https://github.com/hex-ci/px2rem-plus-vscode",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.20.0"
   },
@@ -28,31 +30,31 @@
       }
     ],
     "configuration": {
-			"type": "object",
-			"title": "px2rem+ configuration",
-			"properties": {
-				"px2rem-plus.base": {
-					"type": "number",
-					"default": 75,
-					"description": "The base pixel size for px convert to rem. This can be overridden inline."
-				},
-				"px2rem-plus.precision": {
-					"type": "number",
-					"default": 6,
-					"description": "The number of digits to the right of the decimal point"
-				},
-				"px2rem-plus.comments": {
-					"type": "boolean",
-					"default": false,
-					"description": "Add origin pixel value like /* 100/75 */"
-				},
-				"px2rem-plus.leadingZero": {
-					"type": "boolean",
-					"default": false,
-					"description": "Keep the leading zero for converted values < 1. E.g. 0.5rem (preserved) vs .5rem (not preserved)"
-				}
-			}
-		}
+      "type": "object",
+      "title": "px2rem+ configuration",
+      "properties": {
+        "px2rem-plus.base": {
+          "type": "number",
+          "default": 75,
+          "description": "The base pixel size for px convert to rem. This can be overridden inline."
+        },
+        "px2rem-plus.precision": {
+          "type": "number",
+          "default": 6,
+          "description": "The number of digits to the right of the decimal point"
+        },
+        "px2rem-plus.comments": {
+          "type": "boolean",
+          "default": false,
+          "description": "Add origin pixel value like /* 100/75 */"
+        },
+        "px2rem-plus.leadingZero": {
+          "type": "boolean",
+          "default": false,
+          "description": "Keep the leading zero for converted values < 1. E.g. 0.5rem (preserved) vs .5rem (not preserved)"
+        }
+      }
+    }
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
