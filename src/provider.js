@@ -1,8 +1,6 @@
-'use strict';
+import vscode from 'vscode';
 
-const vscode = require('vscode');
-
-class Provider {
+export default class Provider {
   constructor() {
   }
 
@@ -14,5 +12,3 @@ class Provider {
     });
   }
 }
-
-module.exports = Provider;

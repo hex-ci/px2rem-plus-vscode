@@ -1,7 +1,12 @@
 .vscode/**
 .vscode-test/**
+out/test/**
+out/**/*.map
 test/**
+src/**
 .gitignore
+.gitattributes
+.babelrc
 jsconfig.json
 .eslintrc.json
 px2rem.code-workspace
