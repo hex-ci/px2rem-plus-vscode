@@ -17,7 +17,7 @@
         },
         "background": {
           "activeOnStart": true,
-          "beginsPattern": "^.+?\\.js -> .+?\\.js",
+          "beginsPattern": "^Successfully compiled \\d+ files with Babel\\.",
           "endsPattern": "^Successfully compiled \\d+ files with Babel\\."
         }
       },

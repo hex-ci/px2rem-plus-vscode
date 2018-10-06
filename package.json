@@ -27,11 +27,15 @@
       {
         "command": "extension.px2rem-plus:convert",
         "title": "px2rem+ convert"
+      },
+      {
+        "command": "extension.px2rem-plus:settings",
+        "title": "px2rem+ settings"
       }
     ],
     "configuration": {
       "type": "object",
-      "title": "px2rem+ configuration",
+      "title": "px2rem+",
       "properties": {
         "px2rem-plus.base": {
           "type": "number",
@@ -68,6 +72,7 @@
     "@babel/preset-env": "^7.1.0",
     "@types/mocha": "^2.2.42",
     "@types/node": "^8.10.25",
+    "babel-eslint": "^10.0.1",
     "eslint": "^4.11.0",
     "typescript": "^2.6.1",
     "vscode": "^1.1.21"
