@@ -14,12 +14,11 @@
     "Other"
   ],
   "keywords": [
-    "html",
+    "rem",
+    "px",
     "css",
     "autocomplete",
-    "intellisense",
-    "rem",
-    "px"
+    "intellisense"
   ],
   "activationEvents": [
     "*"
