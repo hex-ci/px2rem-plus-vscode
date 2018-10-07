@@ -1,4 +1,4 @@
-import vscode from 'vscode';
+import { window, workspace } from 'vscode';
 
 let config = {};
 
@@ -60,12 +60,12 @@ export default {
   },
 
   get options() {
-    return vscode.workspace.getConfiguration('px2rem-plus');
+    return workspace.getConfiguration('px2rem-plus');
   },
 
   get base() {
-    const options = vscode.workspace.getConfiguration('px2rem-plus');
-    const editor = vscode.window.activeTextEditor;
+    const options = this.options;
+    const editor = window.activeTextEditor;
 
     let base = options.base;
 
@@ -82,7 +82,7 @@ export default {
 
   set base(str) {
     const base = parseFloat(str);
-    const editor = vscode.window.activeTextEditor;
+    const editor = window.activeTextEditor;
 
     if (editor && !editor.document.isUntitled) {
       const path = editor.document.fileName;
@@ -106,5 +106,11 @@ export default {
 
   get config() {
     return config;
+  },
+
+  get isTwoWay() {
+    const options = this.options;
+
+    return options.twoWayConversion;
   }
 };

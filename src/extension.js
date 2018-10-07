@@ -1,5 +1,4 @@
 import { window, languages, commands, Position, Range } from 'vscode';
-
 import Provider from './provider';
 import helpers from './helpers';
 
@@ -16,6 +15,7 @@ const convert = (textEditor) => {
   }
 
   const text = doc.getText(selection);
+
   textEditor.edit(builder => {
     builder.replace(selection, helpers.convert(text));
   });
@@ -55,7 +55,7 @@ export function activate(context) {
 
   const provider = new Provider();
 
-  ['html', 'vue', 'css', 'less', 'scss', 'sass', 'stylus'].forEach((item) => {
+  ['html', 'css', 'less', 'scss', 'sass', 'stylus', 'vue'].forEach((item) => {
     context.subscriptions.push(languages.registerCompletionItemProvider({
       language: item,
       scheme: ''
