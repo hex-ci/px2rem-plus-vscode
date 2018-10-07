@@ -94,7 +94,7 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "babel src -d out -s",
+    "compile": "babel src -d out -s --delete-dir-on-start",
     "watch": "babel src -d out -w -s --verbose",
     "postinstall": "node ./node_modules/vscode/bin/install"
   },
