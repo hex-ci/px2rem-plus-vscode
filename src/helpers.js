@@ -2,11 +2,11 @@ import vscode from 'vscode';
 
 let config = {};
 
-export default {
-  context: {},
+const pxReg = /[+-]?([0-9]*[.])?[0-9]+px/g;
 
+export default {
   getRem(str) {
-    const options = vscode.workspace.getConfiguration('px2rem-plus');
+    const options = this.options;
     const base = this.base;
     const num = parseFloat(str);
 
@@ -26,13 +26,50 @@ export default {
     return options.comments ? `${remStr}rem /* ${num}/${base} */` : `${remStr}rem`;
   },
 
+  getPx(str) {
+    const options = this.options;
+    const base = this.base;
+    const num = parseFloat(str);
+
+    const px = Number((num * base).toFixed(options.precision));
+    let pxStr = String(px);
+
+    if (options.leadingZero === false) {
+      if (px < 1) {
+        pxStr = pxStr.replace(/^([-+])?0+/, '$1');
+      }
+    }
+
+    return options.comments ? `${pxStr}px /* ${num}*${base} */` : `${pxStr}px`;
+  },
+
+  convert(text) {
+    if (!text) {
+      return text;
+    }
+
+    return text.replace(pxReg, (px) => {
+      const str = this.getRem(px);
+
+      if (str === false) {
+        return px;
+      }
+
+      return str;
+    });
+  },
+
+  get options() {
+    return vscode.workspace.getConfiguration('px2rem-plus');
+  },
+
   get base() {
     const options = vscode.workspace.getConfiguration('px2rem-plus');
     const editor = vscode.window.activeTextEditor;
 
     let base = options.base;
 
-    if (editor) {
+    if (editor && !editor.document.isUntitled) {
       const path = editor.document.fileName;
 
       if (path && config[path] && config[path].base) {
@@ -47,9 +84,9 @@ export default {
     const base = parseFloat(str);
     const editor = vscode.window.activeTextEditor;
 
-    if (editor) {
+    if (editor && !editor.document.isUntitled) {
       const path = editor.document.fileName;
-      //console.log(path);
+
       if (path) {
         if (isNaN(base)) {
           delete config[path];
@@ -59,8 +96,6 @@ export default {
             base: base
           };
         }
-
-        this.context.globalState.update('config', config);
       }
     }
   },

@@ -10,32 +10,60 @@
     "vscode": "^1.25.0"
   },
   "categories": [
-    "Other"
+		"Formatters",
+		"Other"
+  ],
+  "keywords": [
+    "html",
+    "css",
+    "autocomplete",
+    "intellisense",
+    "rem",
+    "px"
   ],
   "activationEvents": [
-    "onLanguage:html",
-    "onLanguage:vue",
-    "onLanguage:css",
-    "onLanguage:less",
-    "onLanguage:scss",
-    "onLanguage:sass",
-    "onLanguage:stylus"
+    "*"
   ],
   "main": "./out/extension",
   "contributes": {
     "commands": [
       {
         "command": "extension.px2rem-plus:convert",
-        "title": "px2rem+ convert"
+        "title": "Convert to rem",
+        "category": "px2rem+"
       },
       {
         "command": "extension.px2rem-plus:settings",
-        "title": "px2rem+ settings"
+        "title": "Set base pixel size",
+        "category": "px2rem+"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.px2rem-plus:settings",
+          "group": "extension.px2rem-plus@1"
+        },
+        {
+          "command": "extension.px2rem-plus:convert",
+          "group": "extension.px2rem-plus@2"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "extension.px2rem-plus:settings",
+        "key": "ctrl+alt+p"
+      },
+      {
+        "command": "extension.px2rem-plus:convert",
+        "key": "ctrl+alt+r",
+        "when": "editorTextFocus"
       }
     ],
     "configuration": {
       "type": "object",
-      "title": "px2rem+",
+      "title": "px2rem+ configuration",
       "properties": {
         "px2rem-plus.base": {
           "type": "number",
@@ -56,6 +84,11 @@
           "type": "boolean",
           "default": false,
           "description": "Keep the leading zero for converted values < 1. E.g. 0.5rem (preserved) vs .5rem (not preserved)"
+        },
+        "px2rem-plus.twoWayConversion": {
+          "type": "boolean",
+          "default": false,
+          "description": "Support to convert rem to px, using the base pixel size, but only in autocomplete."
         }
       }
     }
