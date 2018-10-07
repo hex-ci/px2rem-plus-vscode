@@ -1,4 +1,4 @@
-# px2rem+ extension for vscode
+# px2rem+ extension
 
 Convert px to rem extension for Visual Studio Code.
 
