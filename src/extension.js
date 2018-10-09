@@ -62,6 +62,6 @@ export function activate(context) {
     }, provider));
   });
 
-  context.subscriptions.push(commands.registerTextEditorCommand('extension.px2rem-plus:convert', convert));
-  context.subscriptions.push(commands.registerTextEditorCommand('extension.px2rem-plus:settings', settings));
+  context.subscriptions.push(commands.registerTextEditorCommand('px2rem-plus.convert', convert));
+  context.subscriptions.push(commands.registerTextEditorCommand('px2rem-plus.settings', settings));
 }

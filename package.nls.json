@@ -1,0 +1,10 @@
+{
+  "configuration.title": "px2rem+ configuration",
+  "configuration.base.description": "The base pixel size for px convert to rem. This can be overridden inline.",
+  "configuration.precision.description": "The number of digits to the right of the decimal point",
+  "configuration.comments.description": "Add origin pixel value like /* 100/75 */",
+  "configuration.leadingZero.description": "Keep the leading zero for converted values < 1. E.g. 0.5rem (preserved) vs .5rem (not preserved)",
+  "configuration.twoWayConversion.description": "Support to convert rem to px, using the base pixel size, but only in autocomplete.",
+  "command.convert.title": "Convert to rem",
+  "command.settings.title": "Set base pixel size"
+}
