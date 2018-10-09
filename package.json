@@ -2,7 +2,7 @@
   "name": "px2rem-plus",
   "displayName": "px2rem+",
   "description": "Convert px to rem extension for Visual Studio Code.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "hex-ci",
   "repository": "https://github.com/hex-ci/px2rem-plus-vscode",
   "license": "MIT",
