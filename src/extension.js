@@ -24,10 +24,10 @@ const convert = (textEditor) => {
 const settings = async (textEditor) => {
 	const result = await window.showInputBox({
     value: helpers.base,
-    prompt: 'Enter a base pixel size of the current file. Examples: "75"',
-		placeHolder: 'Base pixel size',
+    prompt: helpers.localize('settings.input.prompt'),
+		placeHolder: helpers.localize('settings.input.placeHolder'),
 		validateInput: value => {
-			return /[^0-9.]/.test(value) ? 'please input number' : null;
+			return /[^0-9.]/.test(value) ? helpers.localize('settings.input.validate') : null;
 		}
   });
 
@@ -36,7 +36,7 @@ const settings = async (textEditor) => {
   }
 
   if (textEditor.document.isUntitled) {
-    window.showWarningMessage('The base pixel size of the current file has not been modified!');
+    window.showWarningMessage(helpers.localize('settings.input.error'));
 
     return;
   }
@@ -45,12 +45,13 @@ const settings = async (textEditor) => {
 
   extensionContext.globalState.update('config', helpers.config);
 
-  window.showInformationMessage('The base pixel size of the current file is modified successfully.');
+  window.showInformationMessage(helpers.localize('settings.input.success'));
 };
 
 export function activate(context) {
   extensionContext = context;
 
+  helpers.initLocalization(context.extensionPath);
   helpers.config = context.globalState.get('config', {});
 
   const provider = new Provider();

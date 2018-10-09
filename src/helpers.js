@@ -1,6 +1,10 @@
 import { window, workspace } from 'vscode';
+import fs from 'fs';
+import path from 'path';
 
 let config = {};
+let localizationMessages = {};
+let defaultMessages = {};
 
 const pxReg = /[+-]?([0-9]*[.])?[0-9]+px/g;
 
@@ -112,5 +116,20 @@ export default {
     const options = this.options;
 
     return options.twoWayConversion;
+  },
+
+  initLocalization(rootPath) {
+    const locale = JSON.parse(process.env.VSCODE_NLS_CONFIG)['locale'].toLowerCase();
+    const prefix = path.join(rootPath, 'package.nls');
+
+    defaultMessages = JSON.parse(fs.readFileSync(prefix + '.json', 'utf8'));
+
+    if (fs.existsSync(prefix + '.' + locale + '.json')) {
+      localizationMessages = JSON.parse(fs.readFileSync(prefix + '.' + locale + '.json', 'utf8'));
+    }
+  },
+
+  localize(key) {
+    return localizationMessages[key] ? localizationMessages[key] : defaultMessages[key];
   }
 };

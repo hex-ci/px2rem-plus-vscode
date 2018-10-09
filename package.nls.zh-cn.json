@@ -6,5 +6,11 @@
   "configuration.leadingZero.description": "当转换后的值小于 1 时，是否保留前导 0，例如：0.5rem（保留）；.5rem（不保留）",
   "configuration.twoWayConversion.description": "是否允许 rem 转换成 px（使用基准像素数，并只用于自动完成）",
   "command.convert.title": "转换为 rem",
-  "command.settings.title": "设置基准像素数"
+  "command.settings.title": "设置基准像素数",
+  "settings.input.prompt": "请输入当前文件的基准像素数，例如“75”",
+  "settings.input.placeHolder": "基准像素数",
+  "settings.input.validate": "请输入数字",
+  "settings.input.success": "当前文件的基准像素数修改成功。",
+  "settings.input.error": "无法修改当前文件的基准像素数！",
+  "provider.base": "基准："
 }

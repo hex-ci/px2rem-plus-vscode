@@ -31,7 +31,7 @@ export default class Provider {
         label : str,
         insertText: str,
         kind: CompletionItemKind.Unit,
-        detail: `base: ${base}`,
+        detail: helpers.localize('provider.base') + base,
         filterText: `${num}` + (isRem2Px ? 'rem' : 'px'),
         preselect: true
       }];
