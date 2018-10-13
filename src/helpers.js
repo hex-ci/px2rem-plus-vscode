@@ -9,7 +9,7 @@ let defaultMessages = {};
 const pxReg = /[+-]?([0-9]*[.])?[0-9]+px/g;
 
 export default {
-  getRem(str) {
+  getRem(str, unitText = 'rem') {
     const options = this.options;
     const base = this.base;
     const num = parseFloat(str);
@@ -27,7 +27,7 @@ export default {
       }
     }
 
-    return options.comments ? `${remStr}rem /* ${num}/${base} */` : `${remStr}rem`;
+    return `${remStr}${unitText}` + (options.comments ? ` /* ${num}/${base} */` : '');
   },
 
   getPx(str) {
@@ -44,7 +44,7 @@ export default {
       }
     }
 
-    return options.comments ? `${pxStr}px /* ${num}*${base} */` : `${pxStr}px`;
+    return `${pxStr}px` + (options.comments ? ` /* ${num}*${base} */` : '');
   },
 
   convert(text) {
@@ -116,6 +116,12 @@ export default {
     const options = this.options;
 
     return options.twoWayConversion;
+  },
+
+  get isUseVwVh() {
+    const options = this.options;
+
+    return options.useVwAndVh;
   },
 
   initLocalization(rootPath) {

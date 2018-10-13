@@ -88,6 +88,11 @@
           "type": "boolean",
           "default": false,
           "description": "%configuration.twoWayConversion.description%"
+        },
+        "px2rem-plus.useVwAndVh": {
+          "type": "boolean",
+          "default": false,
+          "description": "%configuration.useVwAndVh.description%"
         }
       }
     }

@@ -1,10 +1,11 @@
 {
-  "configuration.title": "px2rem+ 配置",
+  "configuration.title": "px2rem+ 设置",
   "configuration.base.description": "px 转换 rem 单位所用的基准像素数。你也可以为每个文件单独设置这个值。",
   "configuration.precision.description": "转换后保留的小数位数",
   "configuration.comments.description": "是否添加原始值的注释，类似：/* 100/75 */",
   "configuration.leadingZero.description": "当转换后的值小于 1 时，是否保留前导 0，例如：0.5rem（保留）；.5rem（不保留）",
   "configuration.twoWayConversion.description": "是否允许 rem 转换成 px（使用基准像素数，并只用于自动完成）",
+  "configuration.useVwAndVh.description": "使用 vw 和 vh 代替 rem（使用基准像素数，并只用于自动完成）",
   "command.convert.title": "转换为 rem",
   "command.settings.title": "设置基准像素数",
   "settings.input.prompt": "请输入当前文件的基准像素数，例如“75”",

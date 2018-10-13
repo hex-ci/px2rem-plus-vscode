@@ -5,6 +5,7 @@
   "configuration.comments.description": "Add origin pixel value like /* 100/75 */",
   "configuration.leadingZero.description": "Keep the leading zero for converted values < 1. E.g. 0.5rem (preserved) vs .5rem (not preserved)",
   "configuration.twoWayConversion.description": "Support to convert rem to px, using the base pixel size, but only in autocomplete.",
+  "configuration.useVwAndVh.description": "Use vw and vh instead of rem, using the base pixel size, but only in autocomplete.",
   "command.convert.title": "Convert to rem",
   "command.settings.title": "Set base pixel size",
   "settings.input.prompt": "Enter a base pixel size of the current file. Examples: \"75\"",

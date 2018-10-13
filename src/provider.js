@@ -12,7 +12,12 @@ export default class Provider {
     const prefix = this.getPrefix(document, position);
 
     if (pxReg.test(prefix)) {
-      return this.getConvertCompletion(prefix);
+      if (helpers.isUseVwVh) {
+        return this.getConvertCompletionForVwVh(prefix);
+      }
+      else {
+        return this.getConvertCompletion(prefix);
+      }
     }
     else if (helpers.isTwoWay && remReg.test(prefix)) {
       return this.getConvertCompletion(prefix, true);
@@ -35,6 +40,38 @@ export default class Provider {
         filterText: `${num}` + (isRem2Px ? 'rem' : 'px'),
         preselect: true
       }];
+    }
+  }
+
+  getConvertCompletionForVwVh(prefix) {
+    const strVw = helpers.getRem(prefix, 'vw');
+    const strVh = helpers.getRem(prefix, 'vh');
+
+    if (strVw !== false) {
+      const base = helpers.base;
+
+      const num = parseFloat(prefix);
+
+      return [
+        {
+          label : strVw,
+          insertText: strVw,
+          kind: CompletionItemKind.Unit,
+          detail: helpers.localize('provider.base') + base,
+          filterText: `${num}px`,
+          sortText: '0',
+          preselect: true
+        },
+        {
+          label : strVh,
+          insertText: strVh,
+          kind: CompletionItemKind.Unit,
+          detail: helpers.localize('provider.base') + base,
+          filterText: `${num}px`,
+          sortText: '1',
+          preselect: false
+        }
+      ];
     }
   }
 
