@@ -28,6 +28,10 @@ Keep the leading zero for converted values < 1. E.g. 0.5rem (preserved) vs .5rem
 
 Support for using vw and vh instead of rem, using the base pixel size, but only in autocomplete.
 
+To use this feature, set `base pixel size` config to proper value, eg: `7.5`, and enable `useVwAndVh`, boom, magic happens。
+
+![](https://raw.githubusercontent.com/hex-ci/px2rem-plus-vscode/master/images/vw.gif)
+
 ## Two-way Conversion
 
 Support to convert rem to px, using the base pixel size, but only in autocomplete.
